@@ -17,10 +17,10 @@
 
         <resources>
             <resource>
-                <directory>src/environments</directory>
+                <directory>src</directory>
             </resource>
             <resource>
-                <directory>src/assets</directory>
+                <directory>e2e</directory>
             </resource>
         </resources>
 
