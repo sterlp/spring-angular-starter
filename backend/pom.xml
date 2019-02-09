@@ -60,12 +60,12 @@
 			This will just copy the static resources into the spring static folder.
 			The second solution (currently active) is to use the addResourceHandlers and get it from the JAR file
 			 -->
+			 <!-- 
             <plugin>
                 <artifactId>maven-resources-plugin</artifactId>
                 <executions>
                     <execution>
                         <id>copy frontend resources</id>
-                        <!-- here the phase you need -->
                         <phase>prepare-package</phase>
                         <goals>
                             <goal>copy-resources</goal>
@@ -81,7 +81,7 @@
                     </execution>
                 </executions>
             </plugin>
-
+			 -->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
