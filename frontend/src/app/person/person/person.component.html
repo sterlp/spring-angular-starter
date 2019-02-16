@@ -1,0 +1,19 @@
+<div *ngIf="person">
+  <h2 *ngIf="person.id">Edit {{ person.name }}</h2>
+  <h2 *ngIf="!person.id">Add new Person</h2>
+  <p>
+    <label *ngIf="person.id">
+      Id:
+      {{ person.id }}
+    </label>
+  </p>
+  <p>
+    <label>
+      Name:
+      <input autofocus #personName [(ngModel)] = "person.name" (keyup.enter)="cmdSave()">
+    </label>
+  </p>
+
+  <button type="button" routerLink="/persons">Cancel</button>
+  <button type="button" class="btn-primary" [disabled]="!(person.name && person.name.length > 1)" (click)="cmdSave()">Save</button>
+</div>

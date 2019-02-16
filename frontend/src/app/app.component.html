@@ -1,14 +1,16 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
+<div>
+  <div>
+    <ul class="topnav">
+      <li>
+        <a routerLink="/persons" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Persons</a>
+      </li>
+      <li>
+        <a routerLink="/persons/newPerson" routerLinkActive="active">Add Person</a>  
+      </li>
+      <div>
+        <p>Angular-Spring-Starter</p>
+      </div>
+    </ul>
+    
+    <router-outlet></router-outlet>       
 </div>
-<h2>Here are some links to help you start: </h2>
-
-<li *ngFor="let item of items; let i = index">
-    {{i}} {{item}}
-</li>
-<!-- 
-<router-outlet></router-outlet>
- -->

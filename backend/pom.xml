@@ -22,7 +22,7 @@
             <groupId>${project.groupId}</groupId>
             <artifactId>frontend</artifactId>
             <version>${project.version}</version>
-            <!-- 
+            <!-- only of copy is enabled
             <optional>true</optional>
              -->
         </dependency>
@@ -41,7 +41,6 @@
 	        <artifactId>spring-boot-devtools</artifactId>
 	        <optional>true</optional>
 	    </dependency>
-
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
