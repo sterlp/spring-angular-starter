@@ -6,14 +6,21 @@
 ## How to run
 ### Dev mode
 ```bash
-npm run start
+npm start
 ```
 - Run Spring boot in e.g. STS
+- Command Line
+```bash
+mvn clean install
+cd backend
+mvn spring-boot:run
+```
 
-### Build
+
+### Build & Run
 ```bash
 mavn package
-- java -jar backend/target/backend-0.1.0-SNAPSHOT.jar
+java -jar backend/target/backend-0.1.0-SNAPSHOT.jar
 ```
 
 # Links
