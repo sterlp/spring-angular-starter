@@ -38,10 +38,12 @@ public class PersonBF {
 
     @RequestMapping
     public Collection<Person> list() {
+    	sleep(500);
         return DB.values();
     }
     @RequestMapping(path = "/{id}", method = RequestMethod.GET)
     public Person get(@PathVariable("id") Long id) {
+    	sleep(500);
         return DB.get(id);
     }
     @RequestMapping(method = RequestMethod.POST)
@@ -58,6 +60,15 @@ public class PersonBF {
     }
     @RequestMapping(path = "/{id}", method = RequestMethod.DELETE)
     public void delete(@PathVariable("id") Long id) {
+    	sleep(700);
     	DB.remove(id);
+    }
+    /**
+     * adding some delay for demonstration purpose of the loading indicator only
+     */
+    private static void sleep(long time) {
+    	try {
+			Thread.sleep(time);
+		} catch (InterruptedException ignored) {}
     }
 }

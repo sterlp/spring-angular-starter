@@ -2,6 +2,9 @@
 target/
 !.mvn/wrapper/maven-wrapper.jar
 
+### VSCODE ###
+.vscode/
+
 ### STS ###
 .apt_generated
 .classpath
