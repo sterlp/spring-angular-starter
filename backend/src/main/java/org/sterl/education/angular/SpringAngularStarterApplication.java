@@ -5,11 +5,14 @@ import java.util.concurrent.TimeUnit;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.http.CacheControl;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @SpringBootApplication
+@Controller
 public class SpringAngularStarterApplication implements WebMvcConfigurer {
 
 	public static void main(String[] args) {
@@ -39,5 +42,13 @@ public class SpringAngularStarterApplication implements WebMvcConfigurer {
 	@Override
 	public void addViewControllers(ViewControllerRegistry registry) {
 	    registry.addViewController("/").setViewName("forward:/index.html");
+	}
+	/**
+	 * Taking care of any angular HTML5 routes -- we just forward them to the index.html
+	 * https://spring.io/blog/2015/05/13/modularizing-the-client-angular-js-and-spring-security-part-vii#using-ldquo-natural-rdquo-routes
+	 */
+	@RequestMapping(value = "/{[path:[^\\.]*}")
+	public String redirect() {
+	    return "forward:/index.html";
 	}
 }
