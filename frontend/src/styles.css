@@ -1,55 +1,12 @@
-/* You can add global styles to this file, and also import other style files */
 body {
-	font-family: Calibri, Arial;
 	margin: 0;
 }
 
-.left {
-    float: left;
+.body-container {
+	margin: 20px;
 }
 
-.btn-primary {
-    color: #fff;
-    background-color: #007bff;
-    border-color: #007bff;
-}
-.btn-primary:hover {
-    color: #fff;
-    background-color: #0069d9;
-    border-color: #0062cc;
-}
-.btn-danger {
-    color: #fff;
-    background-color: #dc3545;
-    border-color: #dc3545;
-}
-.btn-danger:hover {
-    color: #fff;
-    background-color: #c82333;
-    border-color: #bd2130;
-}
-button:focus, button:hover {
-    text-decoration: none;
-}
-button:hover {
-	background-color: lightgrey;
-    border-color: lightgrey;
-}
-
-button {
-    display: inline-block;
-    white-space: nowrap;
-    vertical-align: middle;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    border: 1px solid transparent;
-	border-top-color: transparent;
-	border-right-color: transparent;
-	border-bottom-color: transparent;
-	border-left-color: transparent;
-    padding: .175rem .75rem;
-    line-height: 1.5;
-    border-radius: .25rem;
+.button-row button,
+.button-row a {
+  margin-right: 8px;
 }

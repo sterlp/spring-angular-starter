@@ -1,12 +1,28 @@
-<h2 style="margin-left: 15px;">Persons</h2>
-<div class="row">
-    <div class="card column" *ngFor="let p of persons">
-      <div class="container">
-        <h4><b>{{ p.name }}</b></h4> 
-        <div class="row" style="margin-bottom: 10px;">
-          <button class="left btn-danger" type="button" (click)="cmdDelete(p.id)">Delete</button>
-          <a style="margin-left: 10px;" [routerLink]="['/persons', p.id]" [state]="p">Open</a>
-        </div>
-      </div>
-    </div>
-</div>
+<div class="body-container">
+    <h1 class="mat-h1">Persons</h1>
+    <mat-grid-list cols="4" rowHeight="180px">
+      <mat-grid-tile *ngFor="let p of persons">
+        <mat-card class="person-card" >
+          <mat-card-header>
+            <mat-card-title>
+              <small>{{ p.name }}</small>
+              <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+                <mat-icon>more_vert</mat-icon>
+              </button>
+              <mat-menu #menu="matMenu" xPosition="before">
+                <button mat-menu-item (click)="cmdDelete(p.id)">Delete</button>
+                <button mat-menu-item [routerLink]="['/persons', p.id]" [state]="p">Open</button>
+              </mat-menu>
+            </mat-card-title>
+          </mat-card-header>
+          <mat-card-content class="person-card-content">
+            <div>Nice person descriptions ...</div>
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-button (click)="cmdDelete(p.id)" color="warn">Delete</button>
+            <button mat-button [routerLink]="['/persons', p.id]" [state]="p">Open</button>
+          </mat-card-actions>
+        </mat-card>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>

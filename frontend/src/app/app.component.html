@@ -1,16 +1,27 @@
-<div>
-  <div>
-    <ul class="topnav">
-      <li>
-        <a routerLink="/persons" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Persons</a>
-      </li>
-      <li>
-        <a routerLink="/persons/newPerson" routerLinkActive="active">Add Person</a>  
-      </li>
-      <div>
-        <p>Angular-Spring-Starter</p>
-      </div>
-    </ul>
-    <ng-http-loader></ng-http-loader>    
-    <router-outlet></router-outlet>       
-</div>
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport="true"
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="!(isHandset$ | async)">
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item routerLink="/persons" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Persons</a>
+      <a mat-list-item routerLink="/persons/newPerson" routerLinkActive="active">Add Person</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>my Application</span>
+    </mat-toolbar>
+    <!-- Add Content Here -->
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
