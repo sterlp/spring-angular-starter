@@ -35,3 +35,6 @@ java -jar backend/target/backend-0.1.0-SNAPSHOT.jar
 - https://material.angular.io/components/categories
 - https://mdbootstrap.com/docs/angular/
 - https://medium.com/@spencerfeng/setup-a-proxy-for-api-calls-for-your-angular-cli-app-6566c02a8c4d
+
+## Other Projects
+- https://github.com/bfwg/angular-spring-starter
