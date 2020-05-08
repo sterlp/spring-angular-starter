@@ -1,15 +1,23 @@
 import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { SidebarComponent } from './dashboard/sidebar/sidebar.component';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule
+        RouterTestingModule,
+        MatInputModule,
+        MatIconModule,
+        MatButtonModule
       ],
       declarations: [
-        AppComponent
+        AppComponent,
+        SidebarComponent
       ],
     }).compileComponents();
   }));
@@ -20,16 +28,17 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'frontend'`, () => {
+  it(`should have as title 'admin-template'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('frontend');
+    expect(app.title).toEqual('admin-template');
   });
 
-  it('should render title in a h1 tag', () => {
+  it('should render title Admin-Dashboard', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to frontend!');
+    expect(compiled.querySelector('.c-header-brand').textContent).toContain('Admin-Template');
+    expect(compiled.querySelector('.c-sidebar-nav-title').textContent).toContain('Admin-Template');
   });
 });

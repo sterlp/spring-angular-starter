@@ -1,7 +1,10 @@
 # Overview
+
+The example has delays enabled by default to demonstrat the loadingbar functionality. It can be turned off in the application yml.
+
 - Blog Post: http://sterl.org/2019/02/angular-spring-boot/
-- Simple version: https://github.com/sterlp/spring-angular-starter/tree/master
-- Material version: https://github.com/sterlp/spring-angular-starter/tree/spring-angular-material
+- Bootstrap & Material version: https://github.com/sterlp/spring-angular-starter/tree/master
+- Old (simple) Material version: https://github.com/sterlp/spring-angular-starter/tree/spring-angular-material
 
 # Frontend
 ## Install
@@ -13,9 +16,11 @@
 ```bash
 npm start
 ```
+
 # Backend
 - Run Spring boot in e.g. STS
 - Command Line
+
 ## How to run command line
 ```bash
 mvn clean install
@@ -30,6 +35,7 @@ java -jar backend/target/backend-0.1.0-SNAPSHOT.jar
 ```
 
 # Links
+- https://github.com/sterlp/admin-template
 - https://angular.io/guide/quickstart
 - https://ng-bootstrap.github.io
 - https://material.angular.io/components/categories

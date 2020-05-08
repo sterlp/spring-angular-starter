@@ -1,74 +1,61 @@
 package org.sterl.education.angular.person.api;
 
-import java.util.Collection;
-import java.util.Collections;
-import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.concurrent.atomic.AtomicLong;
-
-import javax.annotation.PostConstruct;
-
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import org.sterl.education.angular.person.dao.PersonDao;
+import org.sterl.education.angular.person.model.Person;
 
+import lombok.extern.log4j.Log4j2;
+
+@Log4j2
 @RestController
 @RequestMapping("/api/persons")
 public class PersonBF {
-	
-	private final static AtomicLong ID_GENERATOR = new AtomicLong(0);
-	private final static Map<Long, Person> DB = Collections.synchronizedMap(new LinkedHashMap<>());
-	
-	@PostConstruct
-	void init() {
-		DB.clear();
-		for (int i = 0; i < 5; i++) {
-			final Long id = ID_GENERATOR.incrementAndGet();
-			DB.put(
-				id,
-				Person.builder()
-					.id(id)
-					.name("Person " + id)
-					.build()
-			);
-		}
-	}
+    @Value("${example.enable-sleep:false}")
+    boolean sleepEnabled;
+    @Autowired PersonDao personDao;
 
     @RequestMapping
-    public Collection<Person> list() {
-    	sleep(500);
-        return DB.values();
+    public ResponseEntity<Page<Person>> list(Pageable page) {
+        sleep(300);
+        return ResponseEntity.ok(personDao.findAll(page));
     }
     @RequestMapping(path = "/{id}", method = RequestMethod.GET)
-    public Person get(@PathVariable("id") Long id) {
-    	sleep(500);
-        return DB.get(id);
+    public ResponseEntity<Person> get(@PathVariable("id") Long id) {
+        sleep(250);
+        return ResponseEntity.of(personDao.findById(id));
     }
     @RequestMapping(method = RequestMethod.POST)
-    public Person add(@RequestBody Person p) throws InterruptedException {
-    	p.setId(ID_GENERATOR.incrementAndGet());
-    	DB.put(p.getId(), p);
-        return p;
+    public Person add(@Validated @RequestBody Person p) throws InterruptedException {
+        return personDao.saveAndFlush(p);
     }
     @RequestMapping(path = "/{id}", method = RequestMethod.PUT)
     public Person add(@PathVariable("id") Long id, @RequestBody Person p) {
-    	p.setId(id);
-    	DB.put(p.getId(), p);
-        return p;
+        p.setId(id);
+        return personDao.saveAndFlush(p);
     }
     @RequestMapping(path = "/{id}", method = RequestMethod.DELETE)
     public void delete(@PathVariable("id") Long id) {
-    	sleep(700);
-    	DB.remove(id);
+        sleep(700);
+        personDao.deleteById(id);
     }
     /**
      * adding some delay for demonstration purpose of the loading indicator only
      */
-    private static void sleep(long time) {
-    	try {
-			Thread.sleep(time);
-		} catch (InterruptedException ignored) {}
+    private void sleep(long time) {
+        if (sleepEnabled) {
+            try {
+                Thread.sleep(time);
+            } catch (InterruptedException ignored) {}
+        }
     }
 }
