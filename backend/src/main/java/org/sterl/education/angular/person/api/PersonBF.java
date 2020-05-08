@@ -14,9 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.sterl.education.angular.person.dao.PersonDao;
 import org.sterl.education.angular.person.model.Person;
 
-import lombok.extern.log4j.Log4j2;
-
-@Log4j2
+@Validated
 @RestController
 @RequestMapping("/api/persons")
 public class PersonBF {
@@ -35,7 +33,7 @@ public class PersonBF {
         return ResponseEntity.of(personDao.findById(id));
     }
     @RequestMapping(method = RequestMethod.POST)
-    public Person add(@Validated @RequestBody Person p) throws InterruptedException {
+    public Person add(@RequestBody Person p) throws InterruptedException {
         return personDao.saveAndFlush(p);
     }
     @RequestMapping(path = "/{id}", method = RequestMethod.PUT)

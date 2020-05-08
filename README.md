@@ -34,6 +34,10 @@ mvn package
 java -jar backend/target/backend-0.1.0-SNAPSHOT.jar
 ```
 
+# Sidenotes
+
+- `mvn clean` will also delete all node_modules
+
 # Links
 - https://github.com/sterlp/admin-template
 - https://angular.io/guide/quickstart
@@ -41,3 +45,4 @@ java -jar backend/target/backend-0.1.0-SNAPSHOT.jar
 - https://material.angular.io/components/categories
 - https://mdbootstrap.com/docs/angular/
 - https://medium.com/@spencerfeng/setup-a-proxy-for-api-calls-for-your-angular-cli-app-6566c02a8c4d
+- https://gist.github.com/pimatco/d5b1891feb90b60ca4681011b6513873
