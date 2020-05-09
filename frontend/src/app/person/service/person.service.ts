@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { SpringResource, Page, SpringDataSource } from '@sterlp/ng-spring-boot-api';
 import { Person } from '../model/person-model';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,7 @@ export class PersonService extends SpringResource<Page<Person>, Person> {
         super(http);
     }
 
-    delete(id?: number | string) {
+    delete(id?: number | string): Observable<void> {
         return this.http.delete<void>(`${this.listUrl}/${id}`);
     }
 }

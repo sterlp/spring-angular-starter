@@ -36,7 +36,7 @@ export class PersonsListComponent implements OnInit, AfterViewInit {
     }
     ngAfterViewInit(): void {
         // avoid Expression has changed after it was checked. Previous value: 'undefined'.
-        setTimeout(() => this.doLoad(), 0);
+        setTimeout(this.doLoad.bind(this), 0);
     }
     doLoad() {
         this.dataSource.doLoad(this.paginator.pageIndex, this.paginator.pageSize);

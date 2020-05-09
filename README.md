@@ -39,10 +39,10 @@ java -jar backend/target/backend-0.1.0-SNAPSHOT.jar
 - `mvn clean` will also delete all node_modules
 
 # Links
-- https://github.com/sterlp/admin-template
-- https://angular.io/guide/quickstart
+- Angular Template: https://github.com/sterlp/admin-template
+- CoreUI 3.0 Doc: https://coreui.io/docs/getting-started/introduction/
+- Angular Material: https://material.angular.io/components/categories
+- Setup a proxy: https://medium.com/@spencerfeng/setup-a-proxy-for-api-calls-for-your-angular-cli-app-6566c02a8c4d
+- All material modules: https://gist.github.com/pimatco/d5b1891feb90b60ca4681011b6513873
+- Link to Angular: https://angular.io/guide/quickstart
 - https://ng-bootstrap.github.io
-- https://material.angular.io/components/categories
-- https://mdbootstrap.com/docs/angular/
-- https://medium.com/@spencerfeng/setup-a-proxy-for-api-calls-for-your-angular-cli-app-6566c02a8c4d
-- https://gist.github.com/pimatco/d5b1891feb90b60ca4681011b6513873

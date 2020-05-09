@@ -29,7 +29,7 @@ public class PersonBF {
     }
     @RequestMapping(path = "/{id}", method = RequestMethod.GET)
     public ResponseEntity<Person> get(@PathVariable("id") Long id) {
-        sleep(250);
+        sleep(1250);
         return ResponseEntity.of(personDao.findById(id));
     }
     @RequestMapping(method = RequestMethod.POST)

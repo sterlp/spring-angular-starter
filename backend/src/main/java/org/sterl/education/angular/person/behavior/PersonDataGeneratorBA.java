@@ -21,7 +21,7 @@ class PersonDataGeneratorBA {
         long count = personDao.count();
         if (count == 0) {
             Random r = new Random();
-            for (int i = 0; i < 5; i++) {
+            for (int i = 0; i < 10; i++) {
                 personDao.save(Person.builder()
                         .name("Person " + (i + 1))
                         .address("Random Address " + r.nextInt( (i + 1) * 10))

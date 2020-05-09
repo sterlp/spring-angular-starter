@@ -17,7 +17,17 @@ export class PersonComponent implements OnInit, OnDestroy {
 
     constructor(private router: Router,
                 private route: ActivatedRoute,
-                private personService: PersonService) { }
+                private personService: PersonService) {
+
+        this.subs.add(this.route.params.subscribe(params => {
+            const id = params.id * 1;
+            if (id) {
+                this.personService.get(id).subscribe(d => this.person = d);
+            } else {
+                this.person = {};
+            }
+        }));
+    }
 
     person: Person;
     error: any;
@@ -28,14 +38,7 @@ export class PersonComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit(): void {
-        this.subs.add(this.route.params.subscribe(params => {
-            const id = params.id * 1;
-            if (id) {
-              this.personService.get(id).subscribe(d => this.person = d);
-            } else {
-              this.person = {};
-            }
-        }));
+
     }
 
     ngOnDestroy(): void {
