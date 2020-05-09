@@ -4,7 +4,7 @@ The example has delays enabled by default to demonstrat the loadingbar functiona
 
 - Blog Post: http://sterl.org/2019/02/angular-spring-boot/
 - Bootstrap & Material version: https://github.com/sterlp/spring-angular-starter/tree/master
-- Old (simple) Material version: https://github.com/sterlp/spring-angular-starter/tree/spring-angular-material
+- Old (simple) Material version: https://github.com/sterlp/spring-angular-starter/tree/simple-material
 
 # Frontend
 ## Install
