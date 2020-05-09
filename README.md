@@ -1,7 +1,6 @@
 # Overview
 - Blog Post: http://sterl.org/2019/02/angular-spring-boot/
-- Simple version: https://github.com/sterlp/spring-angular-starter/tree/master
-- Material version: https://github.com/sterlp/spring-angular-starter/tree/spring-angular-material
+- CoreUI Bootstrap Material Version: https://github.com/sterlp/spring-angular-starter/tree/master
 
 # Frontend
 ## Install
