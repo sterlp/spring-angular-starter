@@ -2,8 +2,23 @@
 target/
 !.mvn/wrapper/maven-wrapper.jar
 
+### compiled output ###
+/dist
+/tmp
+/out-tsc
+
+### Node ###
+/node_modules/
+node_modules
+/dist/
+dist
+
 ### VSCODE ###
-.vscode/
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
 
 ### STS ###
 .apt_generated
