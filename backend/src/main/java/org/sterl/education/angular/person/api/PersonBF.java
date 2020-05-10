@@ -47,7 +47,7 @@ public class PersonBF {
         personDao.deleteById(id);
     }
     /**
-     * adding some delay for demonstration purpose of the loading indicator only
+     * adding some delay for demonstration purpose for loading indicator only
      */
     private void sleep(long time) {
         if (sleepEnabled) {
