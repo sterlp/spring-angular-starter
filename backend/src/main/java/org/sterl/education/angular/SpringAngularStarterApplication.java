@@ -37,15 +37,23 @@ public class SpringAngularStarterApplication implements WebMvcConfigurer {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         final String jarResourcePath = "classpath:/META-INF/resources/webjars/frontend/" + buildProperties.getVersion() + "/";
+
         // no caching for HTML pages
         registry.addResourceHandler("/ui/*.html")
+                .setCacheControl(CacheControl.noStore().sMaxAge(0, TimeUnit.SECONDS).mustRevalidate())
+                .setCachePeriod(0)
                 .addResourceLocations(jarResourcePath);
 
-        // the remaining stuff for 365 days
-        // apply custom config as needed
-        registry.addResourceHandler("/ui/**")
+        // 365 days for JS and CSS files, which have a hash code in the file name by angular
+        registry.addResourceHandler("/ui/*.js", "/ui/*.css")
                 .addResourceLocations(jarResourcePath)
                 .setCacheControl(CacheControl.maxAge(365, TimeUnit.DAYS))
+                .resourceChain(true);
+        
+        // apply custom config as needed to the remaining stuff
+        registry.addResourceHandler("/ui/**")
+                .addResourceLocations(jarResourcePath)
+                .setCacheControl(CacheControl.maxAge(7, TimeUnit.DAYS))
                 .resourceChain(true);
     }
     /**
