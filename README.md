@@ -1,3 +1,5 @@
+[![Java CI with Maven](https://github.com/sterlp/spring-angular-starter/actions/workflows/maven.yml/badge.svg)](https://github.com/sterlp/spring-angular-starter/actions/workflows/maven.yml)
+
 # Overview
 
 The example has delays enabled by default to demonstrat the loadingbar functionality. It can be turned off in the application yml.
