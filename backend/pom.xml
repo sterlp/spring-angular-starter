@@ -17,9 +17,18 @@
             <groupId>${project.groupId}</groupId>
             <artifactId>spring-angular-starter-frontend</artifactId>
             <version>${project.version}</version>
-            <!-- only of copy is enabled
-            <optional>true</optional>
-             -->
+            <!-- only of copy is enabled <optional>true</optional> -->
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+        <!-- simple file DB -->
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <scope>runtime</scope>
         </dependency>
 
         <dependency>
@@ -32,10 +41,10 @@
         </dependency>
 
         <dependency>
-	        <groupId>org.springframework.boot</groupId>
-	        <artifactId>spring-boot-devtools</artifactId>
-	        <optional>true</optional>
-	    </dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <optional>true</optional>
+        </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -50,11 +59,8 @@
 
     <build>
         <plugins>
-			<!--
-			This will just copy the static resources into the spring static folder.
-			The second solution (currently active) is to use the addResourceHandlers and get it from the JAR file
-			 -->
-			 <!-- 
+            <!-- This will just copy the static resources into the spring static folder. The second solution (currently active) 
+                is to use the addResourceHandlers and get it from the JAR file 
             <plugin>
                 <artifactId>maven-resources-plugin</artifactId>
                 <executions>
@@ -75,10 +81,17 @@
                     </execution>
                 </executions>
             </plugin>
-			 -->
+            -->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>build-info</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
