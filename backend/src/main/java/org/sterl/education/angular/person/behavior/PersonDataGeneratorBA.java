@@ -17,7 +17,7 @@ class PersonDataGeneratorBA {
     
     @PostConstruct
     @Transactional
-    void init() {
+    void execute() {
         long count = personDao.count();
         if (count == 0) {
             Random r = new Random();
