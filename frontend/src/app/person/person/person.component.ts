@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, Input, AfterViewInit, ViewChild, ElementRef, Renderer } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input, AfterViewInit, ViewChild, ElementRef, Renderer2 } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from "@angular/router";
 import { Person } from '../model/person';
@@ -15,11 +15,11 @@ export class PersonComponent implements OnInit, OnDestroy, AfterViewInit {
   // as we have *ngIf used, the view are maybe not in the DOM if ngAfterViewInit is executed
   @ViewChild('personName') set elName(element: ElementRef) {
     if (element) {
-      this.$renderer.invokeElementMethod(element.nativeElement, 'focus');
+      element.nativeElement.focus();
     }
   };
   private paramSub;
-  constructor(private $person: PersonService, private $route: ActivatedRoute, private $router: Router, private $renderer: Renderer) { }
+  constructor(private $person: PersonService, private $route: ActivatedRoute, private $router: Router, private $renderer: Renderer2) { }
 
   ngOnInit(): void {
     // we could use this.$route.snapshot.paramMap.get('id');
