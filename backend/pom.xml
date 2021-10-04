@@ -9,18 +9,13 @@
         <relativePath>../pom.xml</relativePath> <!-- lookup parent from repository -->
     </parent>
 
-    <artifactId>backend</artifactId>
-    <description>Spring Angular 5 Backend</description>
-
-    <properties>
-        <java.version>1.8</java.version>
-    </properties>
+    <artifactId>spring-angular-starter-backend</artifactId>
 
     <dependencies>
         <!-- ensure the frontend builds first -->
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>frontend</artifactId>
+            <artifactId>spring-angular-starter-frontend</artifactId>
             <version>${project.version}</version>
             <!-- only of copy is enabled <optional>true</optional> -->
         </dependency>
