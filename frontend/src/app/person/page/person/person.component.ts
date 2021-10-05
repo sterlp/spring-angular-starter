@@ -3,7 +3,6 @@ import { PersonService } from '../../service/person.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SubscriptionsHolder } from '@sterlp/ng-spring-boot-api';
 import { Person, PersonModel } from '../../model/person-model';
-import { isNumber } from 'util';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -29,7 +28,7 @@ export class PersonComponent implements OnInit, OnDestroy {
         }));
     }
 
-    person: Person;
+    person?: Person;
     error: any;
     getLabel = PersonModel.getLabel;
 
@@ -49,9 +48,9 @@ export class PersonComponent implements OnInit, OnDestroy {
         this.error = null;
         let saveObs: Observable<Person>;
         if (this.isNew) {
-            saveObs = this.personService.save(this.person);
+            saveObs = this.personService.save(this.person!);
         } else {
-            saveObs = this.personService.update(this.person, this.person.id);
+            saveObs = this.personService.update(this.person!, this.person!.id!);
         }
 
         saveObs.subscribe(

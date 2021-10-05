@@ -17,7 +17,7 @@
 <main class="c-main">
     <div class="container-fluid">
         <div class="mat-elevation-z8">
-            <table mat-table [dataSource]="dataSource" matSort aria-label="Elements" style="width: 100%;">
+            <table mat-table [dataSource]="dataSource!" matSort aria-label="Elements" style="width: 100%;">
                 <ng-container *ngFor="let c of columns" [matColumnDef]="c.id">
                     <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ c.label }}</th>
                     <td mat-cell *matCellDef="let row" [innerHTML]="c.cell(row)"></td>

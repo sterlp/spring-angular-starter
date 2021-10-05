@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit, Query } from '@angular/core';
 import { PersonModel, Person } from '../../model/person-model';
 import { MatSort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
@@ -14,24 +14,24 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 // tslint:disable: curly
 export class PersonsListComponent implements OnInit, AfterViewInit {
 
-    @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
-    @ViewChild(MatSort, {static: true}) sort: MatSort;
+    @ViewChild(MatPaginator, {static: true}) paginator?: MatPaginator;
+    @ViewChild(MatSort, {static: true}) sort?: MatSort;
 
     readonly columns = PersonModel.COLUMNS;
     readonly displayedColumns = this.columns.map(c => c.id);
 
-    dataSource: PersonDataSource;
+    dataSource?: PersonDataSource;
 
     constructor(private personService: PersonService, private snackBar: MatSnackBar) {}
 
     ngOnInit(): void {
         this.displayedColumns.push('actions');
         this.dataSource = new PersonDataSource(this.personService);
-        this.paginator.page.subscribe(this.dataSource.doPage.bind(this.dataSource));
-        this.sort.sortChange.subscribe(this.dataSource.doSortBy.bind(this.dataSource));
+        this.paginator!.page.subscribe(this.dataSource.doPage.bind(this.dataSource));
+        this.sort!.sortChange.subscribe(this.dataSource.doSortBy.bind(this.dataSource));
         this.dataSource.hateosSubject$.subscribe(v => {
-            if (v && v.totalElements) this.paginator.length = v.totalElements;
-            else this.paginator.length = 0;
+            if (v && v.totalElements) this.paginator!.length = v.totalElements;
+            else this.paginator!.length = 0;
         });
     }
     ngAfterViewInit(): void {
@@ -39,11 +39,11 @@ export class PersonsListComponent implements OnInit, AfterViewInit {
         setTimeout(this.doLoad.bind(this), 0);
     }
     doLoad() {
-        this.dataSource.doLoad(this.paginator.pageIndex, this.paginator.pageSize);
+        this.dataSource!.doLoad(this.paginator!.pageIndex, this.paginator!.pageSize);
     }
     doDelete(p: Person) {
         this.personService.delete(p.id).subscribe(r => {
-            this.snackBar.open(`Person '${p.name}' successfully deleted.`, null, {
+            this.snackBar.open(`Person '${p.name}' successfully deleted.`, undefined, {
                 duration: 3000,
             });
             this.doLoad();

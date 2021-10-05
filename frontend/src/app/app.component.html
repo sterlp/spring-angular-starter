@@ -1,25 +1,25 @@
-<mat-progress-bar *ngIf="loading$ | async" mode="indeterminate" class="fixed-top position-absolute"></mat-progress-bar>
-
 <div #sidebar appSidebar>
 </div>
+
 <!--
     Main content leaving the div content class
     https://coreui.io/docs/layout/overview/
 -->
 <div class="c-wrapper">
-    <!--
-        https://coreui.io/docs/components/header/
-    -->
-    <header class="c-header c-header-light c-header-fixed">
-        <button class="c-header-toggler" type="button" (click)="sidebar.toggle()">
-            <span class="c-header-toggler-icon"></span>
-        </button>
-        <div class="c-header-brand">
-            <strong>Spring-Angular</strong>-Starter
-        </div>
-    </header>
+  <!--
+      https://coreui.io/docs/components/header/
+  -->
+  <header class="c-header c-header-light c-header-fixed c-header-shadow">    
+    <button matRipple class="c-header-toggler" type="button" (click)="sidebar.toggle()">
+      <span class="c-header-toggler-icon"></span>
+    </button>
 
-    <div class="c-body">
-        <router-outlet></router-outlet>
+    <div class="c-header-brand">
+      <strong>Spring-Angular</strong>-Starter
     </div>
+  </header>
+
+  <div class="c-body">
+    <router-outlet></router-outlet>
+  </div>
 </div>

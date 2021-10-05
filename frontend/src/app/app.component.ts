@@ -8,8 +8,8 @@ import { Observable } from 'rxjs';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-    loading$: Observable<boolean>;
-    constructor(loadingService: HttpLoadingService) {
-        this.loading$ = loadingService.loading$;
-    }
+  loading$: Observable<boolean>;
+  constructor(loadingService: HttpLoadingService) {
+      this.loading$ = loadingService.loading$;
+  }
 }
