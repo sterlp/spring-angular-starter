@@ -37,3 +37,5 @@ jobs:
       uses: docker/setup-buildx-action@v1
     - name: Build Docker Image
       run: mvn -B spring-boot:build-image -DskipTest=true -Dspring-boot.build-image.imageName=${{ secrets.DOCKERHUB_USERNAME }}/spring-angular-starter --file backend/pom.xml      
+    - name: Docker Image Push
+      run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/spring-angular-starter:latest   
