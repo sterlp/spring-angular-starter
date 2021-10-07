@@ -6,7 +6,7 @@
 Simple admin UI based on bootstrap but be able to use material design too.
 
 **[Launch Live Preview](https://sterlp.github.io/admin-template/)**
-- run as docker `docker run -p 8080:80 sterlp/admin-template:latest`
+- run as docker `docker run -p 8080:8080 sterlp/spring-angular-starter`
 
 # Included
 - [Core UI](https://coreui.io/) based on Bootstrap

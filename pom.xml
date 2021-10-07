@@ -24,5 +24,8 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>11</java.version>
         <springboot.version>2.5.5</springboot.version>
+
+        <repackage.classifier/>
+        <spring-native.version>0.10.4</spring-native.version>
     </properties>
 </project>
