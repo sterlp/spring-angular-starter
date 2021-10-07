@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { SubscriptionsHolder } from '@sterlp/ng-spring-boot-api';
 import { Person, PersonModel } from '../../model/person-model';
 import { Observable } from 'rxjs';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-person',
@@ -16,7 +17,8 @@ export class PersonComponent implements OnInit, OnDestroy {
 
     constructor(private router: Router,
                 private route: ActivatedRoute,
-                private personService: PersonService) {
+                private personService: PersonService,
+                private snackBar: MatSnackBar) {
 
         this.subs.add(this.route.params.subscribe(params => {
             const id = params.id * 1;
@@ -54,7 +56,12 @@ export class PersonComponent implements OnInit, OnDestroy {
         }
 
         saveObs.subscribe(
-            r => this.router.navigate(this.BACK_URL),
+            r => {
+                this.router.navigate(this.BACK_URL);
+                this.snackBar.open(`Person '${r.name}' saved.`, undefined, {
+                    duration: 3000,
+                });
+            },
             e => this.error = e.error || e
         );
     }
