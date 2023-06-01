@@ -2,13 +2,13 @@ package org.sterl.education.angular.person.behavior;
 
 import java.util.Random;
 
-import javax.annotation.PostConstruct;
-import javax.transaction.Transactional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 import org.sterl.education.angular.person.dao.PersonDao;
 import org.sterl.education.angular.person.model.Person;
+
+import jakarta.annotation.PostConstruct;
 
 @Component
 class PersonDataGeneratorBA {
