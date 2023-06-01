@@ -13,6 +13,9 @@ node_modules
 /dist/
 dist
 
+### Angular ###
+.angular
+
 ### VSCODE ###
 .vscode/*
 !.vscode/settings.json
